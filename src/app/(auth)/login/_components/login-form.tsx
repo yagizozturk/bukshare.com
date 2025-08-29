@@ -40,9 +40,8 @@ export default function LoginForm() {
         return
       }
 
-      // Success - redirect to welcome page
       if (data.user) {
-        router.push("/welcome")
+        router.push("/")
       }
     } catch (err) {
       setError("An unexpected error occurred. Please try again.")
