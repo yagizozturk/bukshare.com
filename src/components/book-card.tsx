@@ -66,7 +66,7 @@ export function BookCard({ book, className = "" }: BookCardProps) {
   )
 
   return (
-    <Link href={`/books/${book.id}/${createSlug(book.title)}`}>
+    <Link href={`/books/${book.id}`}>
       {cardContent}
     </Link>
   )

@@ -8,7 +8,6 @@ import { notFound } from "next/navigation"
 interface BookPageProps {
   params: {
     id: string
-    slug?: string
   }
 }
 
