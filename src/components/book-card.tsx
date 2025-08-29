@@ -6,6 +6,12 @@ import { Book } from "@/lib/services/books"
 function createSlug(title: string): string {
   return title
     .toLowerCase()
+    .replace(/ç/g, 'c')
+    .replace(/ö/g, 'o')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ğ/g, 'g')
+    .replace(/ı/g, 'i')
     .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
     .replace(/\s+/g, '-') // Replace spaces with hyphens
     .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
