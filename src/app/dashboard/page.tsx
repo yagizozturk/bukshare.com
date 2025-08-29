@@ -34,14 +34,6 @@ export default async function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold">Books Dashboard</h1>
-              <p className="text-muted-foreground">Manage and view your book collection</p>
-            </div>
-            <Badge variant="secondary">{books.length} books</Badge>
-          </div>
-
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {books.map((book) => (
               <BookCard key={book.id} book={book} />

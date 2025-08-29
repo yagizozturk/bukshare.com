@@ -12,9 +12,9 @@ function createSlug(title: string): string {
     .replace(/ş/g, 's')
     .replace(/ğ/g, 'g')
     .replace(/ı/g, 'i')
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
     .trim()
 }
 

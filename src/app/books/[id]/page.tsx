@@ -1,6 +1,4 @@
 import { getBookById, Book } from "@/lib/services/books"
-import { BookCard } from "@/components/book-card"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, User, Tag, Hash } from "lucide-react"
@@ -23,7 +21,6 @@ export default async function BookPage({ params }: BookPageProps) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Back Button */}
       <div className="mb-6">
         <Link href="/dashboard">
           <Button variant="ghost" className="gap-2">
@@ -34,7 +31,6 @@ export default async function BookPage({ params }: BookPageProps) {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
-        {/* Book Image */}
         <div className="space-y-4">
           {book.image_url ? (
             <div className="aspect-[3/4] w-full max-w-md mx-auto overflow-hidden rounded-lg bg-muted">
@@ -54,7 +50,6 @@ export default async function BookPage({ params }: BookPageProps) {
           )}
         </div>
 
-        {/* Book Details */}
         <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
@@ -66,7 +61,6 @@ export default async function BookPage({ params }: BookPageProps) {
             )}
           </div>
 
-          {/* Publication Date */}
           {book.publication_date && (
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -76,7 +70,6 @@ export default async function BookPage({ params }: BookPageProps) {
             </div>
           )}
 
-          {/* Categories */}
           {book.categories.length > 0 && (
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -93,7 +86,6 @@ export default async function BookPage({ params }: BookPageProps) {
             </div>
           )}
 
-          {/* ISBN */}
           {book.isbn && (
             <div className="space-y-2">
               <span className="text-sm font-medium">ISBN:</span>
@@ -103,7 +95,6 @@ export default async function BookPage({ params }: BookPageProps) {
             </div>
           )}
 
-          {/* Actions */}
           <div className="flex gap-4 pt-4">
             <Button className="flex-1">
               Add to Library
@@ -115,11 +106,9 @@ export default async function BookPage({ params }: BookPageProps) {
         </div>
       </div>
 
-      {/* Related Books Section */}
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-6">You might also like</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {/* Placeholder for related books */}
           <div className="text-center text-muted-foreground py-8">
             <p>Related books will appear here</p>
           </div>
