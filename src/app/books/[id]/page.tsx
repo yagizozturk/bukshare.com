@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, User, Tag, Hash } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { LayoutWithSidebar } from "@/components/layout-with-sidebar"
 
 interface BookPageProps {
   params: {
@@ -19,7 +20,7 @@ export default async function BookPage({ params }: BookPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <LayoutWithSidebar breadcrumbTitle={book.title}>
       <div className="mb-6">
         <Link href="/dashboard">
           <Button variant="ghost" className="gap-2">
@@ -113,6 +114,6 @@ export default async function BookPage({ params }: BookPageProps) {
           </div>
         </div>
       </div>
-    </div>
+    </LayoutWithSidebar>
   )
 }

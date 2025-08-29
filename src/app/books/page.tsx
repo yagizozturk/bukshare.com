@@ -2,12 +2,13 @@ import { getBooks } from "@/lib/services/books"
 import { BookCard } from "@/components/book-card"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { LayoutWithSidebar } from "@/components/layout-with-sidebar"
 
 export default async function BooksPage() {
   const books = await getBooks()
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <LayoutWithSidebar breadcrumbTitle="All Books">
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold">All Books</h1>
@@ -29,6 +30,6 @@ export default async function BooksPage() {
           </CardContent>
         </Card>
       )}
-    </div>
+    </LayoutWithSidebar>
   )
 }
