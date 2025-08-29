@@ -1,15 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
+import { Book } from "@/lib/services/books"
 
-export interface Book {
-  id: string
-  title: string
-  publication_date: string
-  isbn: string
-  authors: Array<{ name: string }>
-  categories: Array<{ name: string }>
-  image_url?: string
-  alt_text?: string
+function createSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim()
 }
 
 interface BookCardProps {
@@ -18,8 +18,8 @@ interface BookCardProps {
 }
 
 export function BookCard({ book, className = "" }: BookCardProps) {
-  return (
-    <Card className={`hover:shadow-md transition-shadow ${className}`}>
+  const cardContent = (
+    <Card className={`hover:shadow-md transition-shadow cursor-pointer ${className}`}>
       <CardHeader>
         <CardTitle className="line-clamp-2">{book.title}</CardTitle>
         <CardDescription className="line-clamp-1">
@@ -57,5 +57,11 @@ export function BookCard({ book, className = "" }: BookCardProps) {
         </div>
       </CardContent>
     </Card>
+  )
+
+  return (
+    <Link href={`/books/${book.id}/${createSlug(book.title)}`}>
+      {cardContent}
+    </Link>
   )
 }

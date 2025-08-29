@@ -1,0 +1,34 @@
+import { getBooks } from "@/lib/services/books"
+import { BookCard } from "@/components/book-card"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
+export default async function BooksPage() {
+  const books = await getBooks()
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold">All Books</h1>
+          <p className="text-muted-foreground">Discover and explore our book collection</p>
+        </div>
+        <Badge variant="secondary">{books.length} books</Badge>
+      </div>
+      
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {books.map((book) => (
+          <BookCard key={book.id} book={book} />
+        ))}
+      </div>
+      
+      {books.length === 0 && (
+        <Card className="text-center py-12">
+          <CardContent>
+            <p className="text-muted-foreground">No books found. Add your first book to get started!</p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  )
+}

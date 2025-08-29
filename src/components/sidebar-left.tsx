@@ -48,20 +48,20 @@ const data = {
   ],
   navMain: [
     {
-      title: "Search",
-      url: "#",
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: Home,
+    },
+    {
+      title: "Books",
+      url: "/books",
       icon: Search,
+      isActive: true,
     },
     {
       title: "Ask AI",
       url: "#",
       icon: Sparkles,
-    },
-    {
-      title: "Home",
-      url: "#",
-      icon: Home,
-      isActive: true,
     },
     {
       title: "Inbox",
