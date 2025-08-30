@@ -20,7 +20,6 @@ export default function LoginForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     
-    // Simple validation
     if (!email || !password) {
       setError("Please fill in all fields")
       return

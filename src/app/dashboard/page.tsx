@@ -33,7 +33,7 @@ export default function Page() {
 
   return (
     <LayoutWithSidebar breadcrumbTitle="Dashboard - Books">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4">
         <div>
           <h1 className="text-2xl font-bold">Books Dashboard</h1>
           <p className="text-muted-foreground">Manage and view your book collection</p>
@@ -41,7 +41,7 @@ export default function Page() {
         <Badge variant="secondary">{books?.length || 0} books</Badge>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {books?.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

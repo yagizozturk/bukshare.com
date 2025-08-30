@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase/client"
 import { Book } from "@/lib/services/books"
 
 export async function fetchBooks(): Promise<Book[]> {
+  console.log("fetching books");
   const { data: rawBooks, error } = await supabase
     .from('books')
     .select(`
@@ -35,6 +36,7 @@ export async function fetchBooks(): Promise<Book[]> {
 }
 
 export async function fetchBookById(id: string): Promise<Book> {
+  console.log("fetching book by id", id);
   const { data: rawBook, error } = await supabase
     .from('books')
     .select(`

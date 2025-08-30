@@ -33,7 +33,7 @@ export default function BooksPage() {
 
   return (
     <LayoutWithSidebar breadcrumbTitle="All Books">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-4">
         <div>
           <h1 className="text-3xl font-bold">All Books</h1>
           <p className="text-muted-foreground">Discover and explore our book collection</p>
