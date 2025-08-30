@@ -52,7 +52,7 @@ export default function BookPage({ params }: BookPageProps) {
       <div className="grid gap-8 lg:grid-cols-2">
         <div className="space-y-4">
           {book.image_url ? (
-            <div className="aspect-[3/4] w-full max-w-md mx-auto overflow-hidden rounded-lg bg-muted">
+            <div className="aspect-[3/4] w-full max-w-xs mx-auto overflow-hidden rounded-lg bg-muted">
               <img 
                 src={book.image_url} 
                 alt={book.alt_text || book.title}
@@ -60,7 +60,7 @@ export default function BookPage({ params }: BookPageProps) {
               />
             </div>
           ) : (
-            <div className="aspect-[3/4] w-full max-w-md mx-auto bg-muted rounded-lg flex items-center justify-center">
+            <div className="aspect-[3/4] w-full max-w-xs mx-auto bg-muted rounded-lg flex items-center justify-center">
               <div className="text-muted-foreground text-center">
                 <Hash className="h-12 w-12 mx-auto mb-2" />
                 <p>No image available</p>
