@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { QueryProvider } from "@/providers/query-provider";
 
 export const metadata: Metadata = {
   title: "Bukshare - Share Your Books",
@@ -14,9 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="tr" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );

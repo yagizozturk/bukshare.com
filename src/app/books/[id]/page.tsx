@@ -1,10 +1,13 @@
-import { getBookById, Book } from "@/lib/services/books"
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, User, Tag, Hash } from "lucide-react"
 import Link from "next/link"
-import { notFound } from "next/navigation"
 import { LayoutWithSidebar } from "@/components/layout-with-sidebar"
+import { useBook } from "@/hooks/use-books"
+import { BookDetailSkeleton } from "@/components/ui/loading-skeleton"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 interface BookPageProps {
   params: {
@@ -12,11 +15,27 @@ interface BookPageProps {
   }
 }
 
-export default async function BookPage({ params }: BookPageProps) {
-  const book = await getBookById(params.id)
+export default function BookPage({ params }: BookPageProps) {
+  const { data: book, isLoading, error } = useBook(params.id)
 
-  if (!book) {
-    notFound()
+  if (isLoading) {
+    return (
+      <LayoutWithSidebar breadcrumbTitle="Loading...">
+        <BookDetailSkeleton />
+      </LayoutWithSidebar>
+    )
+  }
+
+  if (error || !book) {
+    return (
+      <LayoutWithSidebar breadcrumbTitle="Book Not Found">
+        <Alert variant="destructive">
+          <AlertDescription>
+            {error instanceof Error ? error.message : 'Book not found.'}
+          </AlertDescription>
+        </Alert>
+      </LayoutWithSidebar>
+    )
   }
 
   return (
@@ -97,7 +116,7 @@ export default async function BookPage({ params }: BookPageProps) {
 
           <div className="flex gap-4 pt-4">
             <Button className="flex-1">
-              Add to Library
+              Okudum
             </Button>
             <Button variant="outline" className="flex-1">
               Share Book
