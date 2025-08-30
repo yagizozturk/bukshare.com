@@ -3,22 +3,22 @@
 import * as React from "react"
 import {
   AudioWaveform,
-  Blocks,
-  Calendar,
   Command,
-  Home,
   Inbox,
-  MessageCircleQuestion,
-  Search,
-  Settings2,
   Sparkles,
+  Settings,
+  MessageSquareMore,
   Trash2,
+  Book,
+  MessageCircleQuestionMark,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
+import { NavSecondary } from "@/components/nav-secondary"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
+  SidebarContent,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
@@ -44,53 +44,32 @@ const data = {
   ],
   navMain: [
     {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: Home,
-    },
-    {
-      title: "Books",
-      url: "/books",
-      icon: Search,
-      isActive: true,
-    },
-    {
       title: "Ask AI",
       url: "#",
       icon: Sparkles,
     },
     {
-      title: "Inbox",
+      title: "Books",
+      url: "/books",
+      icon: Book,
+      isActive: true,
+    },
+    {
+      title: "What To Read",
       url: "#",
-      icon: Inbox,
-      badge: "10",
+      icon: MessageCircleQuestionMark,
+    },
+    {
+      title: "Talk To Charachter",
+      url: "#",
+      icon: MessageSquareMore
     },
   ],
   navSecondary: [
     {
-      title: "Calendar",
-      url: "#",
-      icon: Calendar,
-    },
-    {
       title: "Settings",
       url: "#",
-      icon: Settings2,
-    },
-    {
-      title: "Templates",
-      url: "#",
-      icon: Blocks,
-    },
-    {
-      title: "Trash",
-      url: "#",
-      icon: Trash2,
-    },
-    {
-      title: "Help",
-      url: "#",
-      icon: MessageCircleQuestion,
+      icon: Settings,
     },
   ],
 }
@@ -104,6 +83,9 @@ export function SidebarLeft({
         <TeamSwitcher teams={data.teams} />
         <NavMain items={data.navMain} />     
       </SidebarHeader>
+      <SidebarContent>
+        <NavSecondary items={data.navSecondary} />
+      </SidebarContent>
       <SidebarRail />
     </Sidebar>
   )

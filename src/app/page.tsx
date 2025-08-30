@@ -37,12 +37,12 @@ export default function Page() {
     <main className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="text-2xl font-semibold">Hoş geldin{email ? `, ${email}` : ""} 👋</h1>
       <p className="mt-2 text-muted-foreground">
-        Başarıyla giriş yaptın. Buradan dashboard’a geçebilir veya çıkış yapabilirsin.
+        Successfully logged in. Go to Homepage
       </p>
 
       <div className="mt-6 flex gap-3">
-        <Button onClick={() => router.push("/dashboard")}>Dashboard’a git</Button>
-        <Button variant="outline" onClick={signOut}>Çıkış Yap</Button>
+        <Button onClick={() => router.push("/")}>Home</Button>
+        <Button variant="outline" onClick={signOut}>Logout</Button>
       </div>
     </main>
   )

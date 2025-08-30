@@ -41,10 +41,10 @@ export default function BookPage({ params }: BookPageProps) {
   return (
     <LayoutWithSidebar breadcrumbTitle={book.title}>
       <div className="mb-6">
-        <Link href="/dashboard">
+        <Link href="/">
           <Button variant="ghost" className="gap-2">
             <ArrowLeft className="h-4 w-4" />
-            Back to Dashboard
+            Back to Home
           </Button>
         </Link>
       </div>
