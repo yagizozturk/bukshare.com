@@ -41,7 +41,7 @@ export default function Page() {
       </p>
 
       <div className="mt-6 flex gap-3">
-        <Button onClick={() => router.push("/")}>Home</Button>
+        <Button onClick={() => router.push("/books")}>Home</Button>
         <Button variant="outline" onClick={signOut}>Logout</Button>
       </div>
     </main>

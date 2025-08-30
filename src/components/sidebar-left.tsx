@@ -4,11 +4,9 @@ import * as React from "react"
 import {
   AudioWaveform,
   Command,
-  Inbox,
   Sparkles,
   Settings,
   MessageSquareMore,
-  Trash2,
   Book,
   MessageCircleQuestionMark,
 } from "lucide-react"
